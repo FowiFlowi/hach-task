@@ -70,8 +70,9 @@ request('https://api.ovva.tv/v2/ru/tvguide/' + channel, (err, res, body) => {
 		scope: ['groups', 'photos', 'wall']
 	}).then(token => {
 		vkdata.token = token.access_token;
+		vkdata.userId = token.user_id;
 		return VK.call('groups.create', {
-			owner_id: token.user_id,
+			owner_id: vkdata.userId,
 			title: 'Всех Не Отчислят',
 			type: 'group',
 			description: 'hachathon-task',
@@ -90,7 +91,7 @@ request('https://api.ovva.tv/v2/ru/tvguide/' + channel, (err, res, body) => {
 			signed: 1,
 			owner_id: 0 - vkdata.group.id,
 			message: '<3',
-			attachments: 'photo' + 92382956 + '_' + res[0].id
+			attachments: 'photo' + vkdata.userId + '_' + res[0].id
 		})
 	).then(res => 'https://vk.com/club' + vkdata.group.id + '?w=wall-' + vkdata.group.id + '_' + res.post_id)
 	.then(link => console.log('This is our image: ' + link))
