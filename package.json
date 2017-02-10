@@ -1,0 +1,15 @@
+{
+  "name": "hack-task",
+  "version": "1.0.0",
+  "description": "task for hackaton",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fowi",
+  "license": "ISC",
+  "dependencies": {
+    "node-gd": "^1.4.0",
+    "request": "^2.79.0"
+  }
+}
