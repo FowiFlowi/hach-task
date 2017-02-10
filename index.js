@@ -78,7 +78,7 @@ request('https://api.ovva.tv/v2/ru/tvguide/' + channel, (err, res, body) => {
 			subtype: 1
 		})
 	}).then(group => {
-		console.log('group has created: https//vk.com/club' + group.id ':\n');
+		console.log('group has created: https://vk.com/club' + group.id + ':\n');
 		console.log(group);
 		vkdata.group = group;
 		return VK.upload('photo_wall', {
@@ -90,7 +90,7 @@ request('https://api.ovva.tv/v2/ru/tvguide/' + channel, (err, res, body) => {
 			signed: 1,
 			owner_id: 0 - vkdata.group.id,
 			message: '<3',
-			attachments: 'photo' + 92382956 + '_' + r[0].id
+			attachments: 'photo' + 92382956 + '_' + res[0].id
 		})
 	).then(res => 'https://vk.com/club' + vkdata.group.id + '?w=wall-' + vkdata.group.id + '_' + res.post_id)
 	.then(link => console.log('This is our image: ' + link))
